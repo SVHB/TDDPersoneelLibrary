@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDPersoonLibrary", "TDDPersoonLibrary\TDDPersoonLibrary.csproj", "{DAE324D6-49D8-40B4-A033-DDA45EDABA8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDDPersoonLibrary", "TDDPersoonLibrary\TDDPersoonLibrary.csproj", "{DAE324D6-49D8-40B4-A033-DDA45EDABA8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDPersoonLibraryTest", "TDDPersoonLibraryTest\TDDPersoonLibraryTest.csproj", "{50FEED3D-7B4F-47C7-B6F8-B4C0CC5D5970}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DAE324D6-49D8-40B4-A033-DDA45EDABA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE324D6-49D8-40B4-A033-DDA45EDABA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAE324D6-49D8-40B4-A033-DDA45EDABA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50FEED3D-7B4F-47C7-B6F8-B4C0CC5D5970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50FEED3D-7B4F-47C7-B6F8-B4C0CC5D5970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50FEED3D-7B4F-47C7-B6F8-B4C0CC5D5970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50FEED3D-7B4F-47C7-B6F8-B4C0CC5D5970}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
