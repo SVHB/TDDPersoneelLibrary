@@ -17,23 +17,13 @@ namespace TDDPersoonLibrary
             if (voornamen == null)
                 throw new ArgumentNullException();
             
-            this.voornamen = voornamen;                
-        }
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
+            this.voornamen = voornamen;
 
             string voornaam = string.Empty;
 
             for (int i = 0; i < this.voornamen.Count; i++)
             {
                 voornaam = this.voornamen[i];
-                
-                sb.Append(voornaam);
-
-                if (i != this.voornamen.Count - 1)
-                    sb.Append(" ");     //spatie als scheidingsteken tussen de verschillende voornamen
 
                 //exception opgooien indien voornaam meer dan één keer in de list voorkomt
                 if (TelAantalKeerStringInList(this.voornamen, voornaam) > 1)
@@ -46,6 +36,19 @@ namespace TDDPersoonLibrary
                 {
                     throw new ArgumentException();
                 }
+            }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < this.voornamen.Count; i++)
+            {
+                sb.Append(this.voornamen[i]);
+
+                if (i != this.voornamen.Count - 1)
+                    sb.Append(" ");     //spatie als scheidingsteken tussen de verschillende voornamen
             }
 
             return sb.ToString();

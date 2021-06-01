@@ -47,7 +47,7 @@ namespace TDDPersoonLibraryTest
             voornamen.Add("Jan");
             voornamen.Add("Jan");
 
-            new Persoon(voornamen).ToString();
+            new Persoon(voornamen);
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
@@ -55,7 +55,7 @@ namespace TDDPersoonLibraryTest
         {
             voornamen.Add("");
 
-            new Persoon(voornamen).ToString();
+            new Persoon(voornamen);
         }
 
         [TestMethod]
@@ -63,7 +63,16 @@ namespace TDDPersoonLibraryTest
         {
             voornamen.Add("A");
 
-            new Persoon(voornamen).ToString();
+            new Persoon(voornamen);
+        }
+
+        [TestMethod]
+        public void DeToStringLevertNamenOpGescheidenDoorEenSpatie()
+        {
+            voornamen.Add("Jan");
+            voornamen.Add("Piet");
+
+            Assert.AreEqual("Jan Piet", new Persoon(voornamen).ToString());
         }
     }
 }
