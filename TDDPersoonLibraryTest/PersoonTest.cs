@@ -10,12 +10,13 @@ namespace TDDPersoonLibraryTest
     [TestClass]
     public class PersoonTest
     {
-        List<string> voornamen;
-
+        private List<string> voornamen;
+        
         [TestInitialize]
         public void Initialize()
         {
             voornamen = new List<string>();
+
         }
 
         [TestMethod]
@@ -26,6 +27,7 @@ namespace TDDPersoonLibraryTest
             Assert.AreEqual(1, new Persoon(voornamen).ToString().Split(' ').Length);
         }
 
+        [TestMethod]
         public void EenPersoonHeeftTweeVoornamen()
         {
             voornamen.Add("Jan");
@@ -46,7 +48,6 @@ namespace TDDPersoonLibraryTest
         [TestMethod, ExpectedException(typeof(ArgumentException))]
         public void ElkeVoornaamBevatMinstensEenTeken()
         {
-            voornamen.Add("Jan");
             voornamen.Add("");
 
             new Persoon(voornamen).ToString();
