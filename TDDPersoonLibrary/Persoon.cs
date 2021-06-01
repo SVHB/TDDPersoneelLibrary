@@ -9,11 +9,14 @@ namespace TDDPersoonLibrary
 {
     public class Persoon
     {
-        private readonly List<string> voornamen;
+        private List<string> voornamen;
 
         //constructor
         public Persoon(List<string> voornamen)
         {
+            if (voornamen == null)
+                throw new ArgumentNullException();
+            
             this.voornamen = voornamen;                
         }
 
@@ -30,15 +33,15 @@ namespace TDDPersoonLibrary
                 sb.Append(voornaam);
 
                 if (i != this.voornamen.Count - 1)
-                {
-                    sb.Append(" ");
-                }
+                    sb.Append(" ");     //spatie als scheidingsteken tussen de verschillende voornamen
 
-                if (CountOccurenceOfValue2(this.voornamen, voornaam) > 1)
+                //exception opgooien indien voornaam meer dan één keer in de list voorkomt
+                if (TelAantalKeerStringInList(this.voornamen, voornaam) > 1)
                 {
                     throw new ArgumentException();
                 }
 
+                //exception opgooien indien de voornaam geen enkel teken bevat
                 if (voornaam.Length == 0)
                 {
                     throw new ArgumentException();
@@ -48,7 +51,7 @@ namespace TDDPersoonLibrary
             return sb.ToString();
         }
 
-        static int CountOccurenceOfValue2(List<string> list, string valueToFind)
+        static int TelAantalKeerStringInList(List<string> list, string valueToFind)
         {
             int count = list.Where(temp => temp.Equals(valueToFind))
                         .Select(temp => temp)

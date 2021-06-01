@@ -16,11 +16,18 @@ namespace TDDPersoonLibraryTest
         public void Initialize()
         {
             voornamen = new List<string>();
+        }
 
+        [TestMethod, ExpectedException(typeof(NullReferenceException))]
+        public void EenPersoonZonderVoornaamIsNietCorrect()
+        {
+            voornamen.Add(null);
+
+            new Persoon(voornamen).ToString();
         }
 
         [TestMethod]
-        public void EenPersoonHeeftEenVoornaam()
+        public void EenPersoonMetEenVoornaamIsCorrect()
         {
             voornamen.Add("Jan");
 
@@ -28,7 +35,7 @@ namespace TDDPersoonLibraryTest
         }
 
         [TestMethod]
-        public void EenPersoonHeeftTweeVoornamen()
+        public void EenPersoonMetTweeVerschillendeVoornamenIsCorrect()
         {
             voornamen.Add("Jan");
             voornamen.Add("Piet");
@@ -37,7 +44,7 @@ namespace TDDPersoonLibraryTest
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void ElkeVoornaamHeeftEenUniekeNaam()
+        public void EenPersoonMetTweeDezelfdeVoornamenIsNietCorrect()
         {
             voornamen.Add("Jan");
             voornamen.Add("Jan");
@@ -46,9 +53,17 @@ namespace TDDPersoonLibraryTest
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void ElkeVoornaamBevatMinstensEenTeken()
+        public void ElkeVoornaamMoetMinstensEenTekenBevatten()
         {
             voornamen.Add("");
+
+            new Persoon(voornamen).ToString();
+        }
+
+        [TestMethod]
+        public void EenVoornaamBestaandeUitEenTekenIsCorrect()
+        {
+            voornamen.Add("A");
 
             new Persoon(voornamen).ToString();
         }
