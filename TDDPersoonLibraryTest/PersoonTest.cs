@@ -18,12 +18,10 @@ namespace TDDPersoonLibraryTest
             voornamen = new List<string>();
         }
 
-        [TestMethod, ExpectedException(typeof(NullReferenceException))]
+        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
         public void EenPersoonZonderVoornaamIsNietCorrect()
         {
-            voornamen.Add(null);
-
-            new Persoon(voornamen).ToString();
+            new Persoon(null);
         }
 
         [TestMethod]
